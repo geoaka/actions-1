@@ -6,19 +6,34 @@ on:
 jobs:
   ascii_job:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v6
-
       - name: List Repo files
         run: ls -ltra
-
       - name: Executing Shell Scripts
         run: |
           chmod +x ascii-script.sh
           ./ascii-script.sh  
-
+  test_job_2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sleep for 10 seconds
+        run: sleep 10
+      - name: Test file exists
+        run: grep -i "dragon" dragon.txt
+      - name: Executing Shell Scripts
+        run: |
+          chmod +x ascii-script.sh
+          ./ascii-script.sh
+  deploy_job_3:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Read File
+        run: cat dragon.txt
+      - name: Deploy
+        run: echo Deploying
+  
       # - name: Install Cowsay Program
       #   run: sudo apt-get install cowsay -y
 
@@ -30,6 +45,3 @@ jobs:
 
       # - name: Read File
       #   run: cat dragon.txt
-
-      - name: List Repo files
-        run: ls -ltra
