@@ -14,7 +14,7 @@ jobs:
       - name: List Repo files
         run: ls -ltra
 
-      - name: Executing Shell Script
+      - name: Executing Shell Scripts
         run: ./ascii-script.sh  
 
       # - name: Install Cowsay Program
